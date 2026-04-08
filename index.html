@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub Deploy - Tam Bələdçi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">&#60;/&#62; Git Deploy</a>
+            <ul class="nav-links">
+                <li><a href="#intro">Giriş</a></li>
+                <li><a href="#git">Git</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#deploy">Deploy</a></li>
+                <li><a href="#commands">Əmrlər</a></li>
+            </ul>
+            <button class="menu-btn" id="menuBtn">&#9776;</button>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-content">
+            <span class="badge">Tam Bələdçi</span>
+            <h1>Git, GitHub və <span class="highlight">Deploy</span> Necə Olmalıdır?</h1>
+            <p>Layihənizi koddan canlı sayta qədər aparmağın addım-addım izahı</p>
+            <a href="#intro" class="btn">Başla &darr;</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Giriş -->
+        <section id="intro" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>Giriş</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">&#128218;</div>
+                        <h3>Git Nədir?</h3>
+                        <p>Git — versiya idarəetmə sistemidir. Kodunuzun tarixçəsini saxlayır, dəyişiklikləri izləyir və komanda ilə birgə işləməyə imkan verir.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">&#9729;&#65039;</div>
+                        <h3>GitHub Nədir?</h3>
+                        <p>GitHub — Git repozitoriyalarınızı onlayn saxlamaq üçün platformadır. Kod paylaşmaq, əməkdaşlıq etmək və layihələri idarə etmək üçün istifadə olunur.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">&#128640;</div>
+                        <h3>Deploy Nədir?</h3>
+                        <p>Deploy — layihənizi serverdə yerləşdirmək və istifadəçilər üçün əlçatan etmək prosesidir. GitHub Pages, Netlify, Vercel kimi xidmətlər bunu asanlaşdırır.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Git -->
+        <section id="git" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>Git ilə İşləmək</h2>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h3>Git-i quraşdırın</h3>
+                            <p><a href="https://git-scm.com" target="_blank">git-scm.com</a> saytından yükləyin və quraşdırın. Sonra terminaldə yoxlayın:</p>
+                            <div class="code-block">
+                                <code>git --version</code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h3>Konfiqurasiya edin</h3>
+                            <p>Git-ə adınızı və e-poçtunuzu bildirin:</p>
+                            <div class="code-block">
+                                <code>git config --global user.name "Adınız"
+git config --global user.email "email@example.com"</code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h3>Repo yaradın</h3>
+                            <p>Layihə qovluğunda Git-i başladın:</p>
+                            <div class="code-block">
+                                <code>git init</code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h3>Dəyişiklikləri qeyd edin</h3>
+                            <p>Faylları izləməyə əlavə edin və commit edin:</p>
+                            <div class="code-block">
+                                <code>git add .
+git commit -m "İlk commit"</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub -->
+        <section id="github" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>GitHub-a Yükləmək</h2>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h3>GitHub hesabı yaradın</h3>
+                            <p><a href="https://github.com" target="_blank">github.com</a> saytında qeydiyyatdan keçin.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h3>Yeni repo yaradın</h3>
+                            <p>GitHub-da "New repository" düyməsini basın, ad verin və yaradın. README əlavə etməyin.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h3>Lokal repo-nu bağlayın və push edin</h3>
+                            <p>GitHub-ın verdiyi əmrləri terminaldə icra edin:</p>
+                            <div class="code-block">
+                                <code>git remote add origin https://github.com/istifadeci/repo.git
+git branch -M main
+git push -u origin main</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deploy -->
+        <section id="deploy" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2>Deploy Üsulları</h2>
+                </div>
+
+                <div class="deploy-methods">
+                    <div class="deploy-card featured">
+                        <div class="deploy-badge">Ən Asan</div>
+                        <h3>GitHub Pages</h3>
+                        <p>Statik saytlar üçün pulsuz hosting. Birbaşa GitHub repo-dan deploy edir.</p>
+                        <ol>
+                            <li>GitHub-da repo-nun <strong>Settings</strong> bölməsinə keçin</li>
+                            <li><strong>Pages</strong> seçin</li>
+                            <li>Source olaraq <strong>main</strong> branch seçin</li>
+                            <li><strong>Save</strong> basın</li>
+                            <li>Saytınız <code>username.github.io/repo</code> ünvanında hazırdır!</li>
+                        </ol>
+                    </div>
+
+                    <div class="deploy-card">
+                        <h3>Netlify</h3>
+                        <p>Avtomatik deploy, form idarəetmə və serverless funksiyalar.</p>
+                        <ol>
+                            <li><a href="https://netlify.com" target="_blank">netlify.com</a>-da GitHub ilə daxil olun</li>
+                            <li>"New site from Git" seçin</li>
+                            <li>Repo-nu seçin və deploy edin</li>
+                        </ol>
+                    </div>
+
+                    <div class="deploy-card">
+                        <h3>Vercel</h3>
+                        <p>Next.js və digər framework-lər üçün ideal. Çox sürətli.</p>
+                        <ol>
+                            <li><a href="https://vercel.com" target="_blank">vercel.com</a>-da GitHub ilə daxil olun</li>
+                            <li>Repo-nu import edin</li>
+                            <li>Avtomatik konfiqurasiya ilə deploy edin</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Əmrlər -->
+        <section id="commands" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2>Faydalı Git Əmrləri</h2>
+                </div>
+                <div class="commands-table">
+                    <div class="cmd-row cmd-header">
+                        <span>Əmr</span>
+                        <span>İzah</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git status</code>
+                        <span>Dəyişikliklərin vəziyyətini göstərir</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git log --oneline</code>
+                        <span>Commit tarixçəsini qısa göstərir</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git branch</code>
+                        <span>Branch-ları siyahılayır</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git checkout -b yeni-branch</code>
+                        <span>Yeni branch yaradıb keçir</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git merge branch-adi</code>
+                        <span>Branch-ı birləşdirir</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git pull</code>
+                        <span>Uzaq repo-dan dəyişiklikləri çəkir</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git clone url</code>
+                        <span>Repo-nu yerli kompüterə klonlayır</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git stash</code>
+                        <span>Dəyişiklikləri müvəqqəti saxlayır</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git diff</code>
+                        <span>Dəyişikliklərin fərqini göstərir</span>
+                    </div>
+                    <div class="cmd-row">
+                        <code>git reset --soft HEAD~1</code>
+                        <span>Son commit-i geri qaytarır (dəyişikliklər qalır)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Git Deploy Bələdçisi. Bütün hüquqlar qorunur.</p>
+        </div>
+    </footer>
+
+    <button id="scrollTop" class="scroll-top" title="Yuxarı">&uarr;</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

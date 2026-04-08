@@ -1,0 +1,25 @@
+name: Portfolio Auto Deploy
+
+on:
+  push:
+    branches:
+      - main  # Əgər əsas branch-ınızın adı başqadırsa, dəyişin (məs: master)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to AWS via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/portfolio/mydeployaztu
+            git pull origin main
+            sudo cp -r * /var/www/html/
+            sudo systemctl restart nginx

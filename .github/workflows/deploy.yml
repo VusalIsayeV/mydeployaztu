@@ -1,16 +1,16 @@
-name: Portfolio Auto Deploy
+name: Portfolio API Auto Deploy
 
 on:
   push:
     branches:
-      - main  # Əgər əsas branch-ınızın adı başqadırsa, dəyişin (məs: master)
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy to AWS via SSH
         uses: appleboy/ssh-action@master
@@ -21,5 +21,13 @@ jobs:
           script: |
             cd ~/portfolio/mydeployaztu
             git pull origin main
-            sudo cp -r * /var/www/html/
+            if [ ! -d "venv" ]; then
+              python3 -m venv venv
+            fi
+            ./venv/bin/pip install --upgrade pip
+            ./venv/bin/pip install -r requirements.txt
+            sudo cp portfolio-api.service /etc/systemd/system/portfolio-api.service
+            sudo systemctl daemon-reload
+            sudo systemctl enable portfolio-api
+            sudo systemctl restart portfolio-api
             sudo systemctl restart nginx

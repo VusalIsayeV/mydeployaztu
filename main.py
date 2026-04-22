@@ -5,7 +5,7 @@ import json
 import os
 
 app = FastAPI(
-    title="Portfolio API - Deploy Test ✅ (Vusal)",
+    title="Portfolio  - Deploy Test ✅ (Vusal)",
     description="FastAPI CRUD with fake JSON database",
     version="1.0.0",
 )

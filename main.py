@@ -41,6 +41,11 @@ def root():
     return {"message": "Portfolio API işləyir", "docs": "/docs"}
 
 
+@app.get("/root2", tags=["root2"])
+def root2():
+    return {"message": "Portfolio API işləyir (root2)", "docs": "/docs"}
+
+
 @app.get("/items", response_model=list[Item], tags=["items"])
 def list_items():
     return load_db()["items"]
